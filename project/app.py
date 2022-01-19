@@ -210,25 +210,30 @@ def requst():
 def request_post():
     userid = request.form['userid_give']
     makname = request.form['makname_give']
-    makfile = request.form['makfile_give']
+    # makfile = request.form['makfile_give']
     request_receive = request.form['request_give']
+    img = request.files['makfile_give']
+    img.save(f'static/img/{img.filename}')
     # print(request_receive)
+    print(img)
+
     #쿠키가져와 로그인한 id와 id입력란에 적은 id가 일치한지 확인
     token_receive = request.cookies.get('mytoken')
     # print(token_receive)
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.User.find_one({"user_name": payload['user_id']},{'_id': 0})
-        # print(user_info['user_name'])
+        user_info = db.User.find_one({"user_id": payload['user_id']},{'_id': 0})
+        # print(user_info['user_id'])
         # 같을경우 db에 저장후 완료처리
-        if user_info['user_name']==userid:
+        if user_info['user_id']==userid:
             doc = {
                 "userid": userid,
                 "makname": makname,
-                "makfile": makfile,
+                "mak_img_url":f'static/img/{img.filename}',
                 "request": request_receive
             }
             db.Recommend.insert_one(doc)
+            # img.save("./img"+img.filename)
             return jsonify({'result':'success','msg': userid + "님의 추천막걸리가 요청되었습니다."})
         else: #다를경우 본인아이디가 아님을 알림
             return jsonify({'result':'check','msg': "본인의 id를 입력해주세요."})
