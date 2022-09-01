@@ -16,6 +16,7 @@ from tensorflow.keras.models import Model
 
 import requests
 # from bs4 import BeautifulSoup
+from project1 import secret
 
 SECRET_KEY = '333'
 app = Flask(__name__)
@@ -23,7 +24,7 @@ model = tf.keras.models.load_model('./model/keras_model.h5')
 # MongoDB 연결
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.dsncs.mongodb.net/Cluster0?retryWrites=true&w=majority')
+client = MongoClient(secret.key)
 db = client.sparta
 
 
