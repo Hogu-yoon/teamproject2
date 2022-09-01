@@ -74,13 +74,16 @@
 
             //막걸리 정보를 부르는 함수수
             document.getElementById('food1').src = "../static/img/num" + random_food(1, 5) + ".jpeg"
-            info_right();
+            // info_right();
+            var newInfoRight =  info_right(1);
+            var newInfoleft =  info_right(2);
+
             console.log(document.querySelectorAll('.right').length);
             for (var i = 0; i < document.querySelectorAll('.right').length; i++) {
-                document.querySelectorAll('.right')[i].addEventListener('click', info_right)
+                document.querySelectorAll('.right')[i].addEventListener('click', newInfoRight)
             }
             for (var i = 0; i < document.querySelectorAll('.left').length; i++) {
-                document.querySelectorAll('.left')[i].addEventListener('click', info_left)
+                document.querySelectorAll('.left')[i].addEventListener('click', newInfoleft)
             }
         });
 
@@ -161,7 +164,13 @@
 
 
         //막걸리 페이지 오른쪽 버튼 누를때
-        function info_right() {
+        function info_right(x) {
+            if (x == 1){
+                console.log('ddddddddd');
+            }else{
+                 console.log('aaaaaaaaaa');
+            }
+
             number_id = number_id + 10;
             if (number_id > 50) {
                 number_id = 10;
