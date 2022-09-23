@@ -15,6 +15,8 @@
 
 ## 전체일정 프로세스 ##
 - 1일차 : 프로젝트 기획(API설계, 와이어프레임작성), 기능 선정, 역할 분담, 기능별 html 제작
+- ![mak_api](https://user-images.githubusercontent.com/83229401/191901191-36fe8ae1-b9e3-40bc-9263-b7be4850d5e8.jpg)
+- [API명세서](https://docs.google.com/spreadsheets/d/1YYMNECmL1cXWuV9VJdl8vNB3K7w98n_OsfJwLkm3tiQ/edit?usp=sharing)
 - 2일차 : 머신러닝 모델 구현, 카메라 영상 인식 구현, 튜터님 피드백(머신러닝관련), Git과 Github 사용
 - 3일차 : 카메라 영상 인식 구현, 댓글기능 구현
 - 4일차 : 댓글 기능개선, 이미지업로드 기능개선, 각 페이지 css구현
